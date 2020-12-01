@@ -43,3 +43,25 @@ function loadData() {
         "movies" : movies
     }
 }
+
+function loadTeamsData() {
+    return {
+        "teams" :
+        [
+            {
+                //key : value
+                "name" : "Browns",
+                "location" : "Cleveland, OH, USA",
+                "sport" : "American Football",
+                "champsionships_won" : 0
+            },
+            {
+                //key : value
+                "name" : "All Blacks",
+                "location" : "New Zealand",
+                "sport" : "Rugby",
+                "champsionships_won" : 15
+            }
+        ]
+    }
+}
