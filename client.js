@@ -2,18 +2,18 @@ const data = loadData()
 console.log(data)
 const $moviesList = document.getElementById("moviesList")
 
-renderMovies()
-
 function renderMovies() {
-    data.movies.forEach(movie => {
-        const $movie = document.createElement("div")
-        $movie.innerHTML = `<h1>${movie.name}</h1>`
-        movie.reviews.forEach(review => {
-            $movie.innerHTML += `<li>${review.rating}</li>`
-        })
-        $moviesList.append($movie)
-    })
+    $moviesList.innerHTML = 
+    data.movies.map(renderMovie).join('')
 }
+
+const renderMovie = movie => 
+`<div>
+    <h1>${movie.name}</h1>
+    <ul>${movie.reviews.map(renderReview).join('')}</ul>
+</div>`
+
+const renderReview = review => `<li>${review.rating}</li>`
 
 function loadData() {
     //JSON - Javascript Object Notation
@@ -81,3 +81,5 @@ function loadData() {
         "movies": movies
     }
 }
+
+renderMovies()
